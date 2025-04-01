@@ -1,0 +1,312 @@
+/* Định dạng chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.top-bar {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 50px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* Thanh menu */
+nav {
+    background-color: white; /* Đổi màu menu thành trắng */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng đổ bóng nhẹ */
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Khoảng cách giữa các mục menu */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black; /* Đảm bảo chữ màu đen nổi bật trên nền trắng */
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-radius: 5px; /* Bo góc nhẹ */
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00; /* Màu vàng khi hover */
+    color: black;
+}
+
+.menu-container {
+    background-color: white !important; /* Đảm bảo nền trắng */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cải tiến menu dropdown */
+.menu-item {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    list-style: none;
+    width: 170px;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.submenu li {
+    padding: 10px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: block;
+}
+
+.submenu li:hover {
+    background: #ffcc00;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Banner */
+/* Banner */
+.banner {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hiệu ứng đổi ảnh nền */
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: changeBackground 9s infinite;
+    filter: brightness(0.7) blur(2px); /* Làm tối nhẹ và làm mờ nền */
+}
+
+/* Gradient Overlay để tăng độ tương phản */
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+/* Nội dung của banner */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 40px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+/* Tiêu đề SALE */
+.banner-content h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffcc00; /* Màu vàng nổi bật */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    animation: bounce 1.5s infinite alternate;
+}
+
+/* Chữ mô tả */
+.banner-content p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Button mua ngay */
+.banner-content .btn {
+    display: inline-block;
+    background: #ffcc00;
+    color: black;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.banner-content .btn:hover {
+    background: #d32f2f;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Hiệu ứng đổi ảnh nền */
+@keyframes changeBackground {
+    0% { background-image: url('images/thập\ cẩm\ món.jpg'); }
+    33% { background-image: url('images/bánh\ mì\'.jpg'); }
+    66% { background-image: url('images/Phở.jpg'); }
+    100% { background-image: url('images/thập\ cẩm\ món.jpg'); }
+}
+
+/* Hiệu ứng bounce nhẹ cho chữ SALE */
+@keyframes bounce {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-10px); }
+}
+
+
+
+
+
+/* Khu vực khuyến mãi */
+.promo {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: #ffeb3b;
+    text-align: center;
+}
+
+.promo-item {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    width: 20%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.promo-item:hover {
+    transform: scale(1.05);
+}
+
+.promo-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Thực đơn */
+.menu {
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-card {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.menu-card:hover {
+    transform: scale(1.1);
+}
+
+.menu-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Hiệu ứng logo */
+.logo img {
+    height: 80px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo a:hover img {
+    transform: rotate(-5deg) scale(1.1);
+    opacity: 0.8;
+}
+
+.header-container {
+    display: flex;
+    align-items: center; 
+    padding: 10px 20px; 
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.user-actions a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.user-actions a i {
+    margin-right: 5px;
+}
+
+.user-actions a:hover {
+    text-decoration: underline;
+}
